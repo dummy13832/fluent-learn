@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
 const sequelize = require('./config/db');
 const authRoutes = require('./routes/authRoutes');
-
+const cors=require('cors');
 dotenv.config();
 
 const app = express();
@@ -20,3 +20,4 @@ sequelize.sync()
         });
     })
     .catch(err => console.log('Error: ' + err));
+app.use(cors());
